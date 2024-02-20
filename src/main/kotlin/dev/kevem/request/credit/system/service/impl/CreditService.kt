@@ -1,6 +1,7 @@
 package dev.kevem.request.credit.system.service.impl
 
 import dev.kevem.request.credit.system.entity.Credit
+import dev.kevem.request.credit.system.exception.BusinessException
 import dev.kevem.request.credit.system.repository.CreditRepository
 import dev.kevem.request.credit.system.service.ICreditService
 import org.springframework.stereotype.Service
@@ -23,6 +24,6 @@ class CreditService(private val creditRepository: CreditRepository,
     override fun findByCreditCode(customerId: Long, creditCode: UUID): Credit {
         val credit: Credit = (this.creditRepository.findByCreditCode(creditCode)
             ?: throw RuntimeException("Creditcode $creditCode not found"))
-        return if(credit.customer?.id == customerId) credit else throw RuntimeException("Contact Admin")
+        return if(credit.customer?.id == customerId) credit else throw BusinessException("Contact Admin")
     }
 }
