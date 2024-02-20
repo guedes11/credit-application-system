@@ -3,6 +3,7 @@ package dev.kevem.request.credit.system.entity
 import dev.kevem.request.credit.system.entity.Address
 import dev.kevem.request.credit.system.entity.Credit
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
 data class Customer(
@@ -13,13 +14,16 @@ data class Customer(
     var lastName: String = "",
 
     @Column(nullable = false, unique = true)
-    val cpf: String,
+    var cpf: String = "",
 
     @Column(nullable = false, unique = true)
-    var email: String,
+    var income: BigDecimal = BigDecimal.ZERO,
+
+    @Column(nullable = false, unique = true)
+    var email: String = "",
 
     @Column(nullable = false)
-    var password: String,
+    var password: String = "",
 
     @Column(nullable = false)
     @Embedded
