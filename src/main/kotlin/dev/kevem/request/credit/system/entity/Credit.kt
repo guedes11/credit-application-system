@@ -9,7 +9,7 @@ import java.util.UUID
 @Entity
 data class Credit(
     @Column(nullable = false, unique = true)
-    val creditCode: UUID = UUID.randomUUID(),
+    var creditCode: UUID = UUID.randomUUID(),
 
     @Column(nullable = false)
     val creditValue: BigDecimal = BigDecimal.ZERO,

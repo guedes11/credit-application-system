@@ -13,7 +13,7 @@ class CustomerService( private val customerRepository: CustomerRepository): ICus
     }
 
     override fun findById(id: Long): Customer {
-        return this.customerRepository.findById(id).orElseThrow{throw BusinessException("id $id not found") }
+        return this.customerRepository.findById(id).orElseThrow{throw BusinessException("Id $id not found") }
     }
 
     override fun delete(id: Long) {
